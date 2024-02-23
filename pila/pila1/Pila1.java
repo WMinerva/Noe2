@@ -1,4 +1,4 @@
-import java.util.Scanner;     
+import java.util.Scanner;
 
 public class Pila1 {
 
@@ -8,20 +8,20 @@ public class Pila1 {
     int n;
     n = sc.nextInt();
     a.llenar(n);
-   
+
   }
 }
 
 class Vector {
-  protected int max=50;
+  protected int max = 50;
   protected int v[] = new int[max];
 
   public Vector() {
-   
+
   }
 }
 
-class Pila extends Vector{
+class Pila extends Vector {
 
   private int tope;
 
@@ -29,26 +29,29 @@ class Pila extends Vector{
     super();
     tope = -1;
   }
+
   public boolean esVacia() {
-    if(tope == -1)
+    if (tope == -1)
       return true;
     return false;
   }
+
   public boolean esLlena() {
-    if(tope == max-1)
+    if (tope == max - 1)
       return true;
     return false;
   }
-  public void adi(int elem){
-    if (!esLlena()){
+
+  public void adi(int elem) {
+    if (!esLlena()) {
       tope++;
       v[tope] = elem;
-    }
-    else{
+    } else {
       System.out.println("PILA LLENA");
     }
   }
-  public int elim(){
+
+  public int elim() {
     int elem = 0;
     if (!esVacia()) {
       elem = v[tope];
@@ -58,27 +61,29 @@ class Pila extends Vector{
     }
     return elem;
   }
-  public int numElem(){
-    return tope+1;
+
+  public int numElem() {
+    return tope + 1;
   }
-  public void vaciar(Pila Z){
+
+  public void vaciar(Pila Z) {
     while (!Z.esVacia()) {
       adi(Z.elim());
-      
-    }
-  } 
 
-  public void llenar(int n){
-    Scanner sc = new Scanner(System.in); 
+    }
+  }
+
+  public void llenar(int n) {
+    Scanner sc = new Scanner(System.in);
 
     for (int i = 0; i < n; i++) {
       int elem = sc.nextInt();
       adi(elem);
-      
+
     }
   }
 
-  public void mostrar(){
+  public void mostrar() {
 
     Pila aux = new Pila();
     while (!esVacia()) {
