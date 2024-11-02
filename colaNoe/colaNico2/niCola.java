@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class niCola {
 
   public static void main(String[] args) {
@@ -7,6 +8,7 @@ public class niCola {
     c1.mostrar();
   }
 }
+
 class Vector {
   protected int max = 50;
   protected int v[] = new int[max];
@@ -15,6 +17,7 @@ class Vector {
 
   }
 }
+
 class Cola extends Vector {
   protected int fr;
   protected int fi;
@@ -25,31 +28,36 @@ class Cola extends Vector {
     fi = -1;
   }
 }
+
 class ColaSimple extends Cola {
   public ColaSimple() {
     super();
   }
+
   public boolean esVacia() {
-    if(fr == fi)
+    if (fr == fi)
       return true;
     return false;
   }
+
   public boolean esLlena() {
-    if(fi == max-1)
+    if (fi == max - 1)
       return true;
     return false;
   }
+
   public void adi(int elem) {
-    if(esLlena()) {
+    if (esLlena()) {
       System.out.println("COLA LLENA");
     } else {
       fi++;
       v[fi] = elem;
     }
   }
+
   public int eli() {
     int elem = 0;
-    if(esVacia()) {
+    if (esVacia()) {
       System.out.println("COLA VACIA");
     } else {
       fr++;
@@ -57,13 +65,16 @@ class ColaSimple extends Cola {
     }
     return elem;
   }
-public int nroElem() {
+
+  public int nroElem() {
     return fi - fr;
   }
+
   public void vaciar(ColaSimple Z) {
-    while(!Z.esVacia())
+    while (!Z.esVacia())
       adi(Z.eli());
   }
+
   public void llenar(int n) {
     Scanner sc = new Scanner(System.in);
     for (int i = 0; i < n; i++) {
@@ -71,9 +82,10 @@ public int nroElem() {
       adi(elem);
     }
   }
+
   public void mostrar() {
     ColaSimple aux = new ColaSimple();
-    while(!esVacia()) {
+    while (!esVacia()) {
       int elem = eli();
       System.out.println(elem);
       aux.adi(elem);
